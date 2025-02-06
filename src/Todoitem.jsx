@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import CommentIcon from '@mui/icons-material/Comment';
 
 
-export default function Todoitem({ todo, removeTodo }) {
+export default function Todoitem({ todo, removeTodo, toggleTodo }) {
     {
         const labelId = `checkbox-list-label-${todo.list}`;
 
@@ -24,6 +24,7 @@ export default function Todoitem({ todo, removeTodo }) {
                 <ListItemButton role={undefined} dense>
                     <ListItemIcon  >
                         <Checkbox
+                            onChange={toggleTodo}
                             edge="start"
                             checked={todo.completed}
                             tabIndex={-1}
