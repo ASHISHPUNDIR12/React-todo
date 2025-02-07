@@ -16,7 +16,7 @@ export default function TodoList() {
         localStorage.setItem("todos", JSON.stringify(Todos))
     }, [Todos])
 
-    const removeTodo = (id) => {
+    const remove = (id) => {
         setTodos((prevTodo) => {
             return prevTodo.filter((t) => t.id !== id)
         })
@@ -35,14 +35,14 @@ export default function TodoList() {
 
     const addTodo = (text) => {
         setTodos((prevTodos) => {
-            return [...prevTodos, { text: text, id: 8, completed: false }]
+            return [...prevTodos, { text: text, id: crypto.randomUUID(), completed: false }]
         })
     }
 
     return (
         <List sx={{ width: '100%', maxWidth: 300, bgcolor: 'Background.paper' }} >
             {Todos.map((todo) => (
-                <Todoitem todo={todo} key={todo.id} removeTodo={() => removeTodo(todo.id)} toggleTodo={() => toggleTodo(todo.id)} />
+                <Todoitem todo={todo} key={todo.id} remove={() => remove(todo.id)} toggleTodo={() => toggleTodo(todo.id)} />
             ))}
 
             <TodoForm addTodo={addTodo} />

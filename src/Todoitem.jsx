@@ -4,19 +4,23 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete'
+
 import CommentIcon from '@mui/icons-material/Comment';
 
 
-export default function Todoitem({ todo, removeTodo, toggleTodo }) {
+export default function Todoitem({ todo, remove, toggleTodo }) {
     {
         const labelId = `checkbox-list-label-${todo.list}`;
-
+        const removeTodo = () => {
+            remove(todo.id)
+        }
         return (
             <ListItem
                 key={todo.id}
                 secondaryAction={
-                    <IconButton edge="end" aria-label="comments">
-                        <CommentIcon onClick={removeTodo} />
+                    <IconButton edge="end" aria-label="comments" onClick={removeTodo}>
+                        <DeleteIcon />
                     </IconButton>
                 }
                 disablePadding
