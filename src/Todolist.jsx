@@ -50,7 +50,7 @@ export default function TodoList() {
         }}
         >
             <Typography variant="h2" component="h1" sx={{ flexGrow: 1 }}>
-                Todos
+               Priyanshu ka Todo
             </Typography>
             <List sx={{ width: '100%', maxWidth: 300, bgcolor: 'Background.paper' }} >
                 {Todos.map((todo) => (

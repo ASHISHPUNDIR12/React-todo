@@ -11,10 +11,11 @@ function App() {
 
   return (
     <>
+    
       <Navbar />
       <TodoList />
       <CssBaseline />
-      <h1>Todos</h1>
+      
     </>
   )
 }
